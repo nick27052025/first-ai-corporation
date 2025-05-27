@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First AI Corporation - Экосистема Искусственного Интеллекта</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            display: block;
+        }
+
+        .sectors {
+            margin: 4rem 0;
+        }
+
+        .sector-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .sector-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sector-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .sector-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .sector-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .sector-domains {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .sector-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #333;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .sector-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .cta-section {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #333;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .sector-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">FIRST AI</div>
+            <div class="tagline">Первая Искусственная Интеллектуальная Корпорация</div>
+        </header>
+
+        <section class="hero">
+            <h1>Экосистема AI Будущего</h1>
+            <p>99 доменов. Полная экосистема искусственного интеллекта. От медицины до развлечений, от финансов до образования - мы строим будущее уже сегодня.</p>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <span class="stat-number">99</span>
+                <div>Доменов в экосистеме</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">8</span>
+                <div>Основных секторов</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <div>Покрытие AI-рынка</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">∞</span>
+                <div>Потенциал роста</div>
+            </div>
+        </section>
+
+        <section class="sectors">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Наши Направления</h2>
+            
+            <div class="sector-grid">
+                <div class="sector-card" onclick="openSector('consulting')">
+                    <div class="sector-icon">🧠</div>
+                    <div class="sector-title">AI Консалтинг</div>
+                    <div class="sector-domains">first-ai-consulting.com + .online</div>
+                    <p>Профессиональные консультации по внедрению ИИ в бизнес</p>
+                    <button class="sector-btn">Запустить</button>
+                </div>
+
+                <div class="sector-card" onclick="openSector('medical')">
+                    <div class="sector-icon">🏥</div>
+                    <div class="sector-title">Медицинский AI</div>
+                    <div class="sector-domains">20 доменов: medicine, clinic, pharmacy...</div>
+                    <p>Революция в здравоохранении через искусственный интеллект</p>
+                    <button class="sector-btn">Исследовать</button>
+                </div>
+
+                <div class="sector-card" onclick="openSector('fintech')">
+                    <div class="sector-icon">💰</div>
+                    <div class="sector-title">Fintech AI</div>
+                    <div class="sector-domains">18 доменов: fund, coin, exchange, trading...</div>
+                    <p>Будущее финансов на базе искусственного интеллекта</p>
+                    <button class="sector-btn">Инвестировать</button>
+                </div>
+
+                <div class="sector-card" onclick="openSector('technology')">
+                    <div class="sector-icon">💻</div>
+                    <div class="sector-title">AI Технологии</div>
+                    <div class="sector-domains">14 доменов: tech, software, platform...</div>
+                    <p>Передовые AI решения и платформы</p>
+                    <button class="sector-btn">Разрабатывать</button>
+                </div>
+
+                <div class="sector-card" onclick="openSector('market')">
+                    <div class="sector-icon">🏪</div>
+                    <div class="sector-title">AI Маркетплейс</div>
+                    <div class="sector-domains">first-ai-market.com + .online</div>
+                    <p>Торговая площадка AI решений и продуктов</p>
+                    <button class="sector-btn">Торговать</button>
+                </div>
+
+                <div class="sector-card" onclick="openSector('entertainment')">
+                    <div class="sector-icon">🎭</div>
+                    <div class="sector-title">AI Развлечения</div>
+                    <div class="sector-domains">27 доменов: gaming, music, fashion...</div>
+                    <p>Новая эра развлечений с искусственным интеллектом</p>
+                    <button class="sector-btn">Играть</button>
+                </div>
+
+                <div class="sector-card" onclick="openSector('logistics')">
+                    <div class="sector-icon">🚛</div>
+                    <div class="sector-title">AI Логистика</div>
+                    <div class="sector-domains">12 доменов: transport, delivery, cargo...</div>
+                    <p>Умная логистика и транспорт будущего</p>
+                    <button class="sector-btn">Доставлять</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Готовы войти в будущее?</h2>
+            <p>Присоединяйтесь к первой AI-корпорации и станьте частью революции</p>
+            <button class="cta-btn" onclick="showForm()">Начать сотрудничество</button>
+            <button class="cta-btn" onclick="openConsulting()">Получить консультацию</button>
+        </section>
+
+        <section class="contact-form" id="contactForm" style="display: none;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Связаться с нами</h2>
+            <form onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label>Ваше имя</label>
+                    <input type="text" name="name" placeholder="Введите ваше имя" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Телефон</label>
+                    <input type="tel" name="phone" placeholder="+380..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Интересующее направление</label>
+                    <select name="sector" required>
+                        <option value="">Выберите направление</option>
+                        <option value="consulting">AI Консалтинг</option>
+                        <option value="medical">Медицинский AI</option>
+                        <option value="fintech">Fintech AI</option>
+                        <option value="technology">AI Технологии</option>
+                        <option value="market">AI Маркетплейс</option>
+                        <option value="entertainment">AI Развлечения</option>
+                        <option value="logistics">AI Логистика</option>
+                        <option value="partnership">Партнерство</option>
+                        <option value="investment">Инвестиции</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Сообщение</label>
+                    <textarea name="message" rows="4" placeholder="Расскажите о ваших задачах и интересах..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Отправить заявку</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 First AI Corporation. Все права защищены.</p>
+            <p>Создано на базе 99 доменов AI-экосистемы</p>
+        </div>
+    </footer>
+
+    <script>
+        function openSector(sector) {
+            const urls = {
+                'consulting': 'https://first-ai-consulting.com',
+                'medical': 'https://first-ai-medicine.com',
+                'fintech': 'https://first-ai-fund.com',
+                'technology': 'https://first-ai-technology.com',
+                'market': 'https://first-ai-market.com',
+                'entertainment': 'https://first-ai-entertainment.com',
+                'logistics': 'https://first-ai-logistics.com'
+            };
+            
+            if (urls[sector]) {
+                alert(`Переход на ${urls[sector]}\n(Сайт будет создан следующим)`);
+            }
+        }
+
+        function showForm() {
+            document.getElementById('contactForm').style.display = 'block';
+            document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openConsulting() {
+            alert('Переход на first-ai-consulting.com\n(Создадим следующим)');
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            console.log('Данные формы:', data);
+            
+            alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.\n\nДанные переданы в систему Linda AI для обработки.');
+            
+            event.target.reset();
+            document.getElementById('contactForm').style.display = 'none';
+        }
+
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.sector-card, .stat-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                } else {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(50px)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        document.querySelectorAll('.sector-card, .stat-card').forEach(element => {
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+    </script>
+</body>
+</html>
